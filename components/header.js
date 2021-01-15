@@ -1,12 +1,14 @@
-import Link from 'next/link'
+import Link from "next/link";
+import Menu from "./menu";
 
 export default function Header() {
   return (
-    <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
-      <Link href="/">
-        <a className="hover:underline">Blog</a>
-      </Link>
-      .
-    </h2>
-  )
+    <div className="flex flex-row justify-between items-center">
+      <img
+        src="https://www.k2.co.nz/wp-content/uploads/2020/06/K2-1.svg"
+        className="object-left h-32 w-32"
+      />
+      <Menu />
+    </div>
+  );
 }
