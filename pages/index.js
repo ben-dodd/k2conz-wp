@@ -17,6 +17,14 @@ export default function Index({ allPosts: { edges } }) {
       <Layout>
         <Head>
           <title>Specialists in Air Quality Testing | K2 Environmental</title>
+
+        <meta property="og:url" content="https://www.k2.co.nz" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="K2 Environmental Ltd" />
+        <meta property="og:image" content={""} />
+        <meta property="og:description" content="" />
+        <meta property="fb:app_id" content="your fb app id" />
+        <meta property="twitter:card" content="summary" />
         </Head>
         <Container>
           <Header />
