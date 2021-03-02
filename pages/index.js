@@ -5,12 +5,13 @@ import HeroPost from "../components/hero-post";
 import Header from "../components/header";
 import Layout from "../components/layout";
 import BlogRoll from "../components/blog-roll";
-import { getAllPostsForHome } from "../lib/api";
+import { getAllPostsForHome, getPages } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
 
 export default function Index({ allPosts: { edges } }) {
   // const heroPost = edges[0]?.node;
   // const morePosts = edges.slice(1);
+  // const pages = getPages();
 
   return (
     <>
@@ -49,6 +50,7 @@ export default function Index({ allPosts: { edges } }) {
 export async function getStaticProps() {
   // console.log(preview);
   const allPosts = await getAllPostsForHome();
+  console.log(allPosts);
   return {
     props: {
       allPosts,
