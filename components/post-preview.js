@@ -17,7 +17,7 @@ export default function PostPreview({
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={`/${slug}`} href="/[slug]">
           <a
             className="hover:underline"
             dangerouslySetInnerHTML={{ __html: title }}
@@ -25,8 +25,11 @@ export default function PostPreview({
         </Link>
       </h3>
       <div
-        className="text-lg leading-relaxed mb-4"
-        dangerouslySetInnerHTML={{ __html: excerpt }}
+        className="text-lg leading-relaxed mb-4 font-thin"
+        dangerouslySetInnerHTML={{
+          __html:
+            excerpt.length > 200 ? `${excerpt.substring(0, 200)}...` : excerpt,
+        }}
       />
     </div>
   );

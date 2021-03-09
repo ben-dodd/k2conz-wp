@@ -12,17 +12,15 @@ export default function PostHeader({
   categories,
 }) {
   return (
-    <>
-      <PostTitle>{title}</PostTitle>
-      <div className="mb-8 md:mb-16 sm:mx-0">
+    <div className="max-w-4xl mx-auto">
+      {/*<div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} coverImage={coverImage} />
+      </div>*/}
+      <PostTitle>{title}</PostTitle>
+      <div className="mb-6 text-md">
+        Posted <Date dateString={date} />
+        {/*<Categories categories={categories} />*/}
       </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
-          <Categories categories={categories} />
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

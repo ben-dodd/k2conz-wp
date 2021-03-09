@@ -19,7 +19,7 @@
 }
 
 .content ul {
-  @apply list-disc pl-12;
+  @apply list-disc pl-8;
 }
 
 .content ol {
@@ -28,7 +28,7 @@
 
 .content ul > li > ul,
 .content ol > li > ol {
-  @apply my-0 ml-4;
+  @apply my-0;
 }
 
 .content ul > li > ul {
@@ -36,11 +36,11 @@
 }
 
 .content h2 {
-  @apply text-xl mt-12 mb-4 leading-snug;
+  @apply text-2xl font-bold mt-16 mb-4 leading-snug;
 }
 
 .content h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-xl font-semibold mt-8 mb-2 leading-snug;
 }
 
 .content h4 {
