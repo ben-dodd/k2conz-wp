@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import useMediaQuery from "../lib/useMediaQuery";
 import { MdMenu, MdExpandMore, MdChevronRight } from "react-icons/md";
+import Breadcrumbs from "../components/breadcrumbs";
 
 export default function Menu() {
   const [menuState, setMenuState] = useState(null);

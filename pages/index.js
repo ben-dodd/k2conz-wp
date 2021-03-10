@@ -2,13 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../components/container";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
 import Header from "../components/header";
 import Menu from "../components/menu";
 import Layout from "../components/layout";
-import BlogRoll from "../components/blog-roll";
-import { getAllPostsForHome, getPages } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
 
 export default function Index() {
@@ -92,7 +88,7 @@ export default function Index() {
             </div>
             <img src="https://www.k2.co.nz/wp-content/uploads/2020/08/microscope-2182645-scaled-e1597017086550-1.jpg" />
           </div>*/}
-          <div className="grid grid-cols-4 gap-16 place-items-center py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 justify-center py-8">
             {services.map((e) => (
               <Link href={e.url}>
                 <a className="flex flex-col items-center hover:underline">
@@ -110,15 +106,4 @@ export default function Index() {
       </Layout>
     </>
   );
-}
-
-export async function getStaticProps() {
-  // console.log(preview);
-  const allPosts = await getAllPostsForHome();
-  console.log(allPosts);
-  return {
-    props: {
-      allPosts,
-    },
-  };
 }
