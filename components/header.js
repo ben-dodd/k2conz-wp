@@ -49,7 +49,7 @@ export default function Header() {
         <Image src="/logos/ianz.svg" width={ianzDims} height={ianzDims} />
         <div className="flex flex-col items-end ml-4">
           <a
-            className="hover:bg-gray-100 p-2 mb-2 rounded-md border-solid border-2 border-light-blue-500"
+            className="hover-button mb-2"
             href="https://www.facebook.com/k2environmental/"
             target="_blank"
           >
@@ -60,7 +60,7 @@ export default function Header() {
             />
           </a>
           <a
-            className="hover:bg-gray-100 p-2 rounded-md border-solid border-2 border-light-blue-500"
+            className="hover-button"
             href="https://www.linkedin.com/company/k2-environmental-lt"
             target="_blank"
           >

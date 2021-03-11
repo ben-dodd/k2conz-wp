@@ -30,4 +30,7 @@ module.exports = {
       },
     },
   },
+  variants: {
+    backgroundColor: ["odd", "even", "disabled"],
+  },
 };
