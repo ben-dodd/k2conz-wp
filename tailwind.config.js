@@ -31,6 +31,6 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ["odd", "even", "disabled"],
+    backgroundColor: ["odd", "even", "hover", "disabled"],
   },
 };

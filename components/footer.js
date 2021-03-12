@@ -49,7 +49,10 @@ export default function Footer() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-8 border-accent-5">
           {addresses.map((address) => (
-            <div className="pt-4 flex flex-col justify-between items-start">
+            <div
+              key={address?.name}
+              className="pt-4 flex flex-col justify-between items-start"
+            >
               <div>
                 <h2 className="font-bold"> {address?.name} </h2>
                 <div className="mb-2">

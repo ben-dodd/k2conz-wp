@@ -45,6 +45,10 @@ export default function Menu() {
       { url: "/services/ambient-air-testing", name: "Ambient Air Testing" },
     ],
     resources: [
+      {
+        url: "/resources/workplace-exposure-standards",
+        name: "Workplace Exposure Standards",
+      },
       { url: "/resources/technical-notes", name: "Technical Notes" },
       { url: "/resources/report-guides", name: "Report Guides" },
       { url: "/resources/brochures", name: "Brochures" },
@@ -98,6 +102,7 @@ export default function Menu() {
           <div className="max-w-6xl mx-auto flex flex-row justify-between px-8">
             {menu.main.map((e) => (
               <div
+                key={e?.name}
                 onMouseEnter={e.menu ? () => setMenuState(e.menu) : null}
                 onMouseLeave={() => setMenuState(null)}
               >
@@ -111,6 +116,7 @@ export default function Menu() {
                   <div className="absolute bg-white z-50 py-4 border-accent-5 border shadow-medium">
                     {menu[e.menu].map((e) => (
                       <div
+                        key={e?.name}
                         onMouseEnter={
                           e.menu ? () => setSecondMenuState(e.menu) : null
                         }
@@ -125,7 +131,7 @@ export default function Menu() {
                         {e.menu && menu[e.menu] && secondMenuState === e.menu && (
                           <div className="absolute right-0 bg-white z-50 py-4 border-accent-5 border shadow-medium">
                             {menu[e.menu].map((e) => (
-                              <Link href={e.url}>
+                              <Link key={e?.name} href={e.url}>
                                 <div className="flex justify-between items-center cursor-pointer hover:bg-gray-200">
                                   <a className="p-2">{e.name}</a>
                                   {e.menu && <MdChevronRight />}

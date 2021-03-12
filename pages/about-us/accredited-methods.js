@@ -1,58 +1,49 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { getCSVData } from "../../lib/api";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import Table from "../../components/Table";
 import { MdFileDownload } from "react-icons/md";
 import get from "lodash/get";
-import { accreditedMethods } from "../../lib/data";
 
-export default function AccreditedMethods() {
-  // TODO: Add search for methods
+function AccreditedMethods({ data }) {
+  console.log(data);
   const columns = [
-    { Header: "Category", accessor: "category", width: "w-3/12" },
-    { Header: "Description", accessor: "description", width: "w-4/12" },
+    { Header: "Category", accessor: "Group Title", width: "w-3/12" },
+    { Header: "Description", accessor: "Description", width: "w-4/12" },
     {
       Header: "Organisation",
-      accessor: (originalRow, rowIndex) => `${get(originalRow, "org.name")}`,
-      id: "org",
+      accessor: "Organisation",
       width: "w-2/12",
       Cell: ({ row }) =>
-        row?.original?.org?.url ? (
-          <Link href={row?.original?.org?.url}>
+        row?.original?.["Organisation URL"] ? (
+          <Link href={row?.original?.["Organisation URL"]}>
             <a target="_blank" className="underline cursor-pointer">
-              {row?.original?.org?.name}
+              {row?.values?.["Organisation"]}
             </a>
           </Link>
         ) : (
-          <span>{row?.original?.org?.name}</span>
+          <span>{row?.values?.["Organisation"]}</span>
         ),
     },
     {
       Header: "Method",
-      accessor: (originalRow, rowIndex) =>
-        `${get(originalRow, "method.number", "")} ${get(
-          originalRow,
-          "method.name",
-          ""
-        )}`,
-      id: "method",
+      accessor: "Method Name",
       width: "w-4/12",
       Cell: ({ row }) =>
-        row?.original?.method?.url ? (
-          <Link href={row?.original?.method?.url}>
+        row?.original?.["Method URL"] ? (
+          <Link href={row?.original?.["Method URL"]}>
             <a target="_blank" className="underline cursor-pointer">
-              {`${row?.original?.method?.number} ${row?.original?.method?.name}`}
+              {row?.values?.["Method Name"]}
             </a>
           </Link>
         ) : (
-          <span>
-            {`${row?.original?.method?.number} ${row?.original?.method?.name}`}
-          </span>
+          <span>{row?.values?.["Method Name"]}</span>
         ),
     },
-    { Header: "Tags", accessor: "tags" },
+    { Header: "Tags", accessor: "Tags" },
   ];
   return (
     <>
@@ -111,13 +102,16 @@ export default function AccreditedMethods() {
               </Link>
             </div>
           </div>
-          <Table
-            data={accreditedMethods}
-            columns={columns}
-            hiddenColumns={["tags"]}
-          />
+          <Table data={data} columns={columns} hiddenColumns={["tags"]} />
         </Container>
       </Layout>
     </>
   );
 }
+
+AccreditedMethods.getInitialProps = async () => {
+  const data = await getCSVData("methods.csv");
+  return { data };
+};
+
+export default AccreditedMethods;

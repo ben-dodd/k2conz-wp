@@ -85,8 +85,8 @@ export default function Table({ data, columns, hiddenColumns }) {
   );
 
   return (
-    <div class="w-full">
-      <div class="flex justify-end mt-4 mb-4">
+    <div className="w-full">
+      <div className="flex justify-end mt-4 mb-4">
         <GlobalFilter
           preGlobalFilteredRows={preGlobalFilteredRows}
           globalFilter={state.globalFilter}
@@ -96,21 +96,21 @@ export default function Table({ data, columns, hiddenColumns }) {
       {page.length < 1 ? (
         <div>No methods found.</div>
       ) : (
-        <div class="max-w-full">
-          <table {...getTableProps()} class="border-collapse">
+        <div className="w-full">
+          <table {...getTableProps()} className="w-full border-collapse">
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
                     <th
                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                      class={`text-left pl-4 border ${get(
+                      className={`text-left pl-4 border ${get(
                         column,
                         "width"
                       )} bg-gray-200 hover:bg-gray-300`}
                     >
                       {column.render("Header")}
-                      <span class="ml-2">
+                      <span className="ml-2">
                         {column.isSorted
                           ? column.isSortedDesc
                             ? " ↑"
@@ -127,11 +127,11 @@ export default function Table({ data, columns, hiddenColumns }) {
                 prepareRow(row);
                 let rowProps = row.getRowProps();
                 return (
-                  <tr {...rowProps} class="even:bg-gray-100">
+                  <tr {...rowProps} className="even:bg-gray-100">
                     {row.cells.map((cell) => (
                       <td
                         {...cell.getCellProps()}
-                        class={`text-left pl-4 border ${get(
+                        className={`text-left pl-4 border ${get(
                           cell,
                           "column.width",
                           ""
@@ -145,7 +145,7 @@ export default function Table({ data, columns, hiddenColumns }) {
               })}
             </tbody>
           </table>
-          <div class="flex justify-end items-center pt-2">
+          <div className="flex justify-end items-center pt-2">
             <span>
               Page{" "}
               <strong>
@@ -153,28 +153,28 @@ export default function Table({ data, columns, hiddenColumns }) {
               </strong>
             </span>
             <button
-              class="icon-button"
+              className="icon-button"
               onClick={() => gotoPage(0)}
               disabled={!canPreviousPage}
             >
               <MdFirstPage />
             </button>
             <button
-              class="icon-button"
+              className="icon-button"
               onClick={() => previousPage()}
               disabled={!canPreviousPage}
             >
               <MdNavigateBefore />
             </button>
             <button
-              class="icon-button"
+              className="icon-button"
               onClick={() => nextPage()}
               disabled={!canNextPage}
             >
               <MdNavigateNext />
             </button>
             <button
-              class="icon-button"
+              className="icon-button"
               onClick={() => gotoPage(pageCount - 1)}
               disabled={!canNextPage}
             >

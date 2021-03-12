@@ -73,21 +73,6 @@ export default function Index() {
           <title>Specialists in Air Quality Testing | K2 Environmental</title>
         </Head>
         <Container>
-          {/*<div className="flex">
-            <div className="pt-4">
-              <div className="text-3xl mb-4">
-                We are a locally-owned environmental testing company committed
-                to keeping your home and workplace environments safe.
-              </div>
-              <div className="text-xl">
-                Since 1997, we have been providing a range of services with a
-                philosophy of continuous improvement. We are proud of our record
-                of providing quality solutions for a wide range of homeowners,
-                workplaces, developers and public sector organisations.
-              </div>
-            </div>
-            <img src="https://www.k2.co.nz/wp-content/uploads/2020/08/microscope-2182645-scaled-e1597017086550-1.jpg" />
-          </div>*/}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 justify-center py-8">
             {services.map((e) => (
               <Link href={e.url}>
