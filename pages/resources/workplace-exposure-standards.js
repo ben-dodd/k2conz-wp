@@ -1,15 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { getCSVData } from "../../lib/api";
+import { getCSVData, getJSONData } from "../../lib/api";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import Table from "../../components/Table";
 import { MdFileDownload } from "react-icons/md";
 import get from "lodash/get";
 
-function WorkplaceExposureStandards({ data }) {
-  console.log(data);
+function WorkplaceExposureStandards({ data, substances }) {
+  // console.log(data);
+  console.log(substances);
   const columns = [
     { Header: "Substance", accessor: "Substance", width: "w-4/12" },
     { Header: "CAS #", accessor: "CAS", width: "w-2/12" },
@@ -30,7 +31,7 @@ function WorkplaceExposureStandards({ data }) {
           <title>Workplace Exposure Standards | K2 Environmental</title>
         </Head>
         <Container>
-          <Table data={data} columns={columns} hiddenColumns={[]} />
+          <Table data={data} columns={columns} pageSize={20} />
         </Container>
       </Layout>
     </>
@@ -39,7 +40,8 @@ function WorkplaceExposureStandards({ data }) {
 
 WorkplaceExposureStandards.getInitialProps = async () => {
   const data = await getCSVData("wes.csv");
-  return { data };
+  const substances = await getJSONData("substances.json");
+  return { data, substances };
 };
 
 export default WorkplaceExposureStandards;

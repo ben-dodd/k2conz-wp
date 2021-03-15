@@ -55,7 +55,7 @@ function GlobalFilter({
   );
 }
 
-export default function Table({ data, columns, hiddenColumns }) {
+export default function Table({ data, columns, hiddenColumns, pageSize }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -75,7 +75,14 @@ export default function Table({ data, columns, hiddenColumns }) {
     setGlobalFilter,
     state,
   } = useTable(
-    { columns, data, initialState: { hiddenColumns } },
+    {
+      columns,
+      data,
+      initialState: {
+        hiddenColumns: hiddenColumns || [],
+        pageSize: pageSize || 10,
+      },
+    },
     useBlockLayout,
     useResizeColumns,
     useFilters,
