@@ -1,16 +1,27 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { getCSVData, getJSONData } from "../../lib/api";
+import { getCSVData, getJSONData, getPubChemDataFromCas } from "../../lib/api";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import Table from "../../components/Table";
 import { MdFileDownload } from "react-icons/md";
 import get from "lodash/get";
 
-function WorkplaceExposureStandards({ data, substances }) {
-  // console.log(data);
-  console.log(substances);
+function WorkplaceExposureStandards({ data }) {
+  console.log(
+    data &&
+      data.map((c) => {
+        if (c?.CAS) {
+          let casArray = [];
+          let casNumbers = c?.CAS.split(" ");
+          casNumbers.forEach((cas) => {
+            getPubChemDataFromCas(cas).then((id) => casArray.push(id));
+          });
+          return { ...c, CAS: casArray };
+        } else return c;
+      })
+  );
   const columns = [
     { Header: "Substance", accessor: "Substance", width: "w-4/12" },
     { Header: "CAS #", accessor: "CAS", width: "w-2/12" },
@@ -40,8 +51,7 @@ function WorkplaceExposureStandards({ data, substances }) {
 
 WorkplaceExposureStandards.getInitialProps = async () => {
   const data = await getCSVData("wes.csv");
-  const substances = await getJSONData("substances.json");
-  return { data, substances };
+  return { data };
 };
 
 export default WorkplaceExposureStandards;
