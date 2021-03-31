@@ -71,6 +71,14 @@ p {
   @apply text-4xl;
 }
 
+.page-title {
+  @apply mb-8 mt-8 text-5xl font-bold tracking-tighter leading-tight;
+}
+
+.page-title__md {
+  @apply text-6xl;
+}
+
 .alignfull {
   @apply w-screen relative;
 

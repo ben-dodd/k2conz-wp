@@ -152,7 +152,7 @@ export default function Table({ data, columns, hiddenColumns, pageSize }) {
               })}
             </tbody>
           </table>
-          <div className="flex justify-end items-center pt-2">
+          <div className="flex justify-end items-center py-2">
             <span>
               Page{" "}
               <strong>

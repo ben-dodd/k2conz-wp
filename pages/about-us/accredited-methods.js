@@ -43,7 +43,7 @@ function AccreditedMethods({ data }) {
           <span>{row?.values?.["Method Name"]}</span>
         ),
     },
-    { Header: "Tags", accessor: "Tags" },
+    { Header: "Tags", accessor: "tags" },
   ];
   return (
     <>

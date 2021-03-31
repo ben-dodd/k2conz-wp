@@ -18,6 +18,7 @@ export default function Footer() {
       address4: "Christchurch 8023",
       phone: "03 384 8966",
       mobile: "027 433 7872",
+      url: "https://g.page/k2environmental?share",
     },
     {
       name: "Auckland Office",
@@ -26,6 +27,7 @@ export default function Footer() {
       address3: "Auckland 2022",
       phone: "09 275 1261",
       mobile: "027 675 8223",
+      url: "https://g.page/k2-environmental-ltd?share",
     },
     {
       name: "Wellington Office",
@@ -34,6 +36,7 @@ export default function Footer() {
       address3: "Lower Hutt 5010",
       phone: "04 595 4563",
       mobile: "027 533 7872",
+      url: "https://goo.gl/maps/yq5C6AYt5weRzykS9",
     },
     {
       name: "Hamilton Office",
@@ -42,6 +45,7 @@ export default function Footer() {
       address3: "Hamilton 3204",
       phone: null,
       mobile: "027 233 7874",
+      url: "https://g.page/k2-environmental-ltd-hamilton?share",
     },
   ];
   return (
@@ -55,11 +59,13 @@ export default function Footer() {
             >
               <div>
                 <h2 className="font-bold"> {address?.name} </h2>
-                <div className="mb-2">
-                  <div>{address?.address1}</div>
-                  <div>{address?.address2}</div>
-                  <div>{address?.address3}</div>
-                  <div>{address?.address4}</div>
+                <div className="mb-2 hover:underline">
+                  <a href={address?.url}>
+                    <div>{address?.address1}</div>
+                    <div>{address?.address2}</div>
+                    <div>{address?.address3}</div>
+                    <div>{address?.address4}</div>
+                  </a>
                 </div>
               </div>
               <div className="mb-8">
