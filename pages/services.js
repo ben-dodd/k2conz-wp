@@ -52,7 +52,7 @@ function Services() {
               {
                 title: "What areas of the country do you service?",
                 body:
-                  "We operate out of offices in Auckland, Christchurch, Wellington and Hamilton. We can provide services throughout New Zealand.",
+                  "We operate out of offices in Auckland, Christchurch, Wellington and Hamilton providing services throughout New Zealand.",
               },
               {
                 title: "What is the name of your company?",
