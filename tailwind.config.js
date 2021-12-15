@@ -31,7 +31,7 @@ module.exports = {
       transitionProperty: {
         width: "width",
         spacing: "margin",
-        height: "max-height",
+        height: "height",
       },
     },
   },
