@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { getCSVData } from "../../lib/api";
+import { fetchAndParseCSV } from "../../lib/api";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import Table from "../../components/Table";
@@ -110,7 +110,7 @@ function AccreditedMethods({ data }) {
 }
 
 AccreditedMethods.getInitialProps = async () => {
-  const data = await getCSVData("methods.csv");
+  const data = await fetchAndParseCSV("https://api.k2.co.nz/data/methods.csv");
   return { data };
 };
 

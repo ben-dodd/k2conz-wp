@@ -13,7 +13,9 @@ export default function Accordion({ title, content }) {
               className={`cursor-pointer flex flex-row justify-between items-center p-2 font-bold ${
                 expanded === i ? "bg-gray-200" : "bg-gray-100"
               }`}
-              onClick={() => setExpanded(expanded === i ? null : i)}
+              onClick={() =>
+                setExpanded((currExpanded) => (currExpanded === i ? null : i))
+              }
             >
               <p>{e.title}</p>
               {expanded === i ? <MdExpandLess /> : <MdExpandMore />}
