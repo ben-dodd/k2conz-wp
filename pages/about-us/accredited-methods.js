@@ -1,50 +1,48 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { fetchAndParseCSV } from "../../lib/api";
-import Container from "../../components/container";
-import Layout from "../../components/layout";
-import Table from "../../components/Table";
-import { MdFileDownload } from "react-icons/md";
-import get from "lodash/get";
+import Head from 'next/head'
+import Link from 'next/link'
+import { fetchAndParseCSV } from '../../lib/api'
+import Container from '../../components/container'
+import Layout from '../../components/layout'
+import Table from '../../components/table'
+import { MdFileDownload } from 'react-icons/md'
 
 function AccreditedMethods({ data }) {
-  console.log(data);
+  console.log(data)
   const columns = [
-    { Header: "Category", accessor: "Group Title", width: "w-3/12" },
-    { Header: "Description", accessor: "Description", width: "w-4/12" },
+    { Header: 'Category', accessor: 'Group Title', width: 'w-3/12' },
+    { Header: 'Description', accessor: 'Description', width: 'w-4/12' },
     {
-      Header: "Organisation",
-      accessor: "Organisation",
-      width: "w-2/12",
+      Header: 'Organisation',
+      accessor: 'Organisation',
+      width: 'w-2/12',
       Cell: ({ row }) =>
-        row?.original?.["Organisation URL"] ? (
-          <Link href={row?.original?.["Organisation URL"]}>
+        row?.original?.['Organisation URL'] ? (
+          <Link href={row?.original?.['Organisation URL']}>
             <a target="_blank" className="underline cursor-pointer">
-              {row?.values?.["Organisation"]}
+              {row?.values?.['Organisation']}
             </a>
           </Link>
         ) : (
-          <span>{row?.values?.["Organisation"]}</span>
+          <span>{row?.values?.['Organisation']}</span>
         ),
     },
     {
-      Header: "Method",
-      accessor: "Method Name",
-      width: "w-4/12",
+      Header: 'Method',
+      accessor: 'Method Name',
+      width: 'w-4/12',
       Cell: ({ row }) =>
-        row?.original?.["Method URL"] ? (
-          <Link href={row?.original?.["Method URL"]}>
+        row?.original?.['Method URL'] ? (
+          <Link href={row?.original?.['Method URL']}>
             <a target="_blank" className="underline cursor-pointer">
-              {row?.values?.["Method Name"]}
+              {row?.values?.['Method Name']}
             </a>
           </Link>
         ) : (
-          <span>{row?.values?.["Method Name"]}</span>
+          <span>{row?.values?.['Method Name']}</span>
         ),
     },
-    { Header: "Tags", accessor: "tags" },
-  ];
+    { Header: 'Tags', accessor: 'tags' },
+  ]
   return (
     <>
       <Layout>
@@ -55,16 +53,17 @@ function AccreditedMethods({ data }) {
           <div className="grid grid-cols-1 sm:grid-cols-2">
             <div>
               <img
+                alt="IANZ Logo"
                 className="float-left m-4"
                 src="/logos/ianz.svg"
                 width={80}
                 height={80}
               />
               <p>
-                K2 Environmental is accredited by{" "}
+                K2 Environmental is accredited by{' '}
                 <a href="https://www.ianz.govt.nz/">
                   International Accreditation New Zealand (IANZ)
-                </a>{" "}
+                </a>{' '}
                 for the methods listed in the tables below.
               </p>
               <p>
@@ -102,16 +101,16 @@ function AccreditedMethods({ data }) {
               </Link>
             </div>
           </div>
-          <Table data={data} columns={columns} hiddenColumns={["tags"]} />
+          <Table data={data} columns={columns} hiddenColumns={['tags']} />
         </Container>
       </Layout>
     </>
-  );
+  )
 }
 
 AccreditedMethods.getInitialProps = async () => {
-  const data = await fetchAndParseCSV("https://api.k2.co.nz/data/methods.csv");
-  return { data };
-};
+  const data = await fetchAndParseCSV('https://api.k2.co.nz/data/methods.csv')
+  return { data }
+}
 
-export default AccreditedMethods;
+export default AccreditedMethods

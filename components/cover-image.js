@@ -1,15 +1,15 @@
-import cn from "classnames";
-import Link from "next/link";
+import Link from 'next/link'
 
 export default function CoverImage({ title, coverImage, slug }) {
   const image = (
     <img
+      alt="Cover Image"
       src={coverImage?.sourceUrl}
-      className={cn("shadow-small h-48 w-full object-cover", {
-        "hover:shadow-medium transition-shadow duration-200": slug,
-      })}
+      className={`shadow-small h-48 w-full object-cover ${
+        slug && 'hover:shadow-medium transition-shadow duration-200'
+      }`}
     />
-  );
+  )
   return (
     <div className="sm:mx-0">
       {slug ? (
@@ -20,5 +20,5 @@ export default function CoverImage({ title, coverImage, slug }) {
         image
       )}
     </div>
-  );
+  )
 }

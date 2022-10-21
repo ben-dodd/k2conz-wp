@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Container from "../components/container";
-import Layout from "../components/layout";
-import Accordion from "../components/accordion";
-import { services } from "../public/config/services";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import Container from '../components/container'
+import Layout from '../components/layout'
+import Accordion from '../components/accordion'
+import { services } from '../public/config/services'
 
 function Services() {
   return (
@@ -23,8 +23,8 @@ function Services() {
             </div>
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-16 justify-center py-8">
-            {services.map((e) => (
-              <div>
+            {services.map((e, i) => (
+              <div key={i}>
                 <Link href={e.url}>
                   <a className="font-bold hover:underline">{e.title}</a>
                 </Link>
@@ -50,20 +50,19 @@ function Services() {
             title="FAQ"
             content={[
               {
-                title: "What areas of the country do you service?",
-                body:
-                  "We operate out of offices in Auckland, Christchurch, Wellington and Hamilton providing services throughout New Zealand.",
+                title: 'What areas of the country do you service?',
+                body: 'We operate out of offices in Auckland, Christchurch, Wellington and Hamilton providing services throughout New Zealand.',
               },
               {
-                title: "What is the name of your company?",
-                body: "K2 Environmental Ltd",
+                title: 'What is the name of your company?',
+                body: 'K2 Environmental Ltd',
               },
             ]}
           />
         </Container>
       </Layout>
     </>
-  );
+  )
 }
 
-export default Services;
+export default Services

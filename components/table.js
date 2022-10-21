@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from "react";
-import "regenerator-runtime/runtime";
+import React, { useMemo, useState } from 'react'
+import 'regenerator-runtime/runtime'
 
 // Store
 
 // Actions
-import get from "lodash/get";
+import get from 'lodash/get'
 
 // Material UI Components
 import {
@@ -17,7 +17,7 @@ import {
   useFilters,
   useGlobalFilter,
   useAsyncDebounce,
-} from "react-table";
+} from 'react-table'
 
 import {
   MdSearch,
@@ -25,17 +25,17 @@ import {
   MdNavigateBefore,
   MdNavigateNext,
   MdLastPage,
-} from "react-icons/md";
+} from 'react-icons/md'
 
 function GlobalFilter({
   preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
 }) {
-  const [searchValue, setSearchValue] = useState(globalFilter);
+  const [searchValue, setSearchValue] = useState(globalFilter)
   const onChange = useAsyncDebounce((value) => {
-    setGlobalFilter(value || undefined);
-  }, 100);
+    setGlobalFilter(value || undefined)
+  }, 100)
   return (
     <div className="flex rounded-md border bg-gray-100 shadow-sm hover:shadow-md">
       <div className="m-2 self-center">
@@ -45,14 +45,14 @@ function GlobalFilter({
         type="text"
         value={searchValue}
         onChange={(e) => {
-          setSearchValue(e.target.value);
-          onChange(e.target.value);
+          setSearchValue(e.target.value)
+          onChange(e.target.value)
         }}
         placeholder="Search…"
         className="pl-2"
       />
     </div>
-  );
+  )
 }
 
 export default function Table({ data, columns, hiddenColumns, pageSize }) {
@@ -89,7 +89,7 @@ export default function Table({ data, columns, hiddenColumns, pageSize }) {
     useGlobalFilter,
     useSortBy,
     usePagination
-  );
+  )
 
   return (
     <div className="w-full">
@@ -106,23 +106,24 @@ export default function Table({ data, columns, hiddenColumns, pageSize }) {
         <div className="w-full">
           <table {...getTableProps()} className="w-full border-collapse">
             <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
+              {headerGroups.map((headerGroup, i) => (
+                <tr key={i} {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column, i) => (
                     <th
+                      key={i}
                       {...column.getHeaderProps(column.getSortByToggleProps())}
                       className={`text-left pl-4 border ${get(
                         column,
-                        "width"
+                        'width'
                       )} bg-gray-200 hover:bg-gray-300`}
                     >
-                      {column.render("Header")}
+                      {column.render('Header')}
                       <span className="ml-2">
                         {column.isSorted
                           ? column.isSortedDesc
-                            ? " ↑"
-                            : " ↓"
-                          : ""}
+                            ? ' ↑'
+                            : ' ↓'
+                          : ''}
                       </span>
                     </th>
                   ))}
@@ -130,33 +131,34 @@ export default function Table({ data, columns, hiddenColumns, pageSize }) {
               ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-              {page.map((row) => {
-                prepareRow(row);
-                let rowProps = row.getRowProps();
+              {page.map((row, i) => {
+                prepareRow(row)
+                let rowProps = row.getRowProps()
                 return (
-                  <tr {...rowProps} className="even:bg-gray-100">
-                    {row.cells.map((cell) => (
+                  <tr key={i} {...rowProps} className="even:bg-gray-100">
+                    {row.cells.map((cell, i) => (
                       <td
+                        key={i}
                         {...cell.getCellProps()}
                         className={`text-left pl-4 border ${get(
                           cell,
-                          "column.width",
-                          ""
+                          'column.width',
+                          ''
                         )}`}
                       >
-                        {cell.render("Cell")}
+                        {cell.render('Cell')}
                       </td>
                     ))}
                   </tr>
-                );
+                )
               })}
             </tbody>
           </table>
           <div className="flex justify-end items-center py-2">
             <span>
-              Page{" "}
+              Page{' '}
               <strong>
-                {get(state, "pageIndex", 0) + 1} of {pageOptions.length}
+                {get(state, 'pageIndex', 0) + 1} of {pageOptions.length}
               </strong>
             </span>
             <button
@@ -191,5 +193,5 @@ export default function Table({ data, columns, hiddenColumns, pageSize }) {
         </div>
       )}
     </div>
-  );
+  )
 }

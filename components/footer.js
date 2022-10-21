@@ -1,53 +1,48 @@
-import Container from "./container";
-import { EXAMPLE_PATH } from "../lib/constants";
-import Image from "next/image";
-import { MdEmail, MdPhone, MdSmartphone } from "react-icons/md";
+import Container from './container'
+import { EXAMPLE_PATH } from '../lib/constants'
+import Image from 'next/image'
+import { MdEmail, MdPhone, MdSmartphone } from 'react-icons/md'
 
 export default function Footer() {
   const addresses = [
     {
-      name: (
-        <div className="flex content-start">
-          <div className="pr-4">Christchurch Office</div>
-          <Image src="/logos/veritas.svg" height="24" width="48" />
-        </div>
-      ),
-      address1: "PO Box 28147",
-      address2: "Unit 24, 105 Bamford Street",
-      address3: "Woolston",
-      address4: "Christchurch 8023",
-      phone: "03 384 8966",
-      mobile: "027 433 7872",
-      url: "https://g.page/k2environmental?share",
+      name: 'Christchurch Office',
+      address1: 'PO Box 28147',
+      address2: 'Unit 24, 105 Bamford Street',
+      address3: 'Woolston',
+      address4: 'Christchurch 8023',
+      phone: '03 384 8966',
+      mobile: '027 433 7872',
+      url: 'https://g.page/k2environmental?share',
     },
     {
-      name: "Auckland Office",
-      address1: "Unit 23, 203 Kirkbride Road",
-      address2: "Airport Oaks",
-      address3: "Auckland 2022",
-      phone: "09 275 1261",
-      mobile: "027 675 8223",
-      url: "https://g.page/k2-environmental-ltd?share",
+      name: 'Auckland Office',
+      address1: 'Unit 23, 203 Kirkbride Road',
+      address2: 'Airport Oaks',
+      address3: 'Auckland 2022',
+      phone: '09 275 1261',
+      mobile: '027 675 8223',
+      url: 'https://g.page/k2-environmental-ltd?share',
     },
     {
-      name: "Wellington Office",
-      address1: "Unit 5, 408 Hutt Road",
-      address2: "Alicetown",
-      address3: "Lower Hutt 5010",
-      phone: "04 595 4563",
-      mobile: "027 533 7872",
-      url: "https://goo.gl/maps/yq5C6AYt5weRzykS9",
+      name: 'Wellington Office',
+      address1: 'Unit 5, 408 Hutt Road',
+      address2: 'Alicetown',
+      address3: 'Lower Hutt 5010',
+      phone: '04 595 4563',
+      mobile: '027 533 7872',
+      url: 'https://goo.gl/maps/yq5C6AYt5weRzykS9',
     },
     {
-      name: "Hamilton Office",
-      address1: "37 Lake Road",
-      address2: "Frankton",
-      address3: "Hamilton 3204",
+      name: 'Hamilton Office',
+      address1: '37 Lake Road',
+      address2: 'Frankton',
+      address3: 'Hamilton 3204',
       phone: null,
-      mobile: "027 233 7874",
-      url: "https://g.page/k2-environmental-ltd-hamilton?share",
+      mobile: '027 233 7874',
+      url: 'https://g.page/k2-environmental-ltd-hamilton?share',
     },
-  ];
+  ]
   return (
     <footer className="bg-accent-1 border-t border-accent-5">
       <Container>
@@ -60,7 +55,7 @@ export default function Footer() {
               <div>
                 <h2 className="font-bold"> {address?.name} </h2>
                 <div className="mb-2 hover:underline">
-                  <a href={address?.url}>
+                  <a href={address?.url} target="_blank" rel="noreferrer">
                     <div>{address?.address1}</div>
                     <div>{address?.address2}</div>
                     <div>{address?.address3}</div>
@@ -97,9 +92,9 @@ export default function Footer() {
           ))}
         </div>
         <div className="text-xs text-center md:text-right">
-          Copyright© 2021 K2 Environmental
+          Copyright© 2022 K2 Environmental
         </div>
       </Container>
     </footer>
-  );
+  )
 }

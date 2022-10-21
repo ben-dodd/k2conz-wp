@@ -1,10 +1,10 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
-@import url("https://fonts.googleapis.com/css?family=Amiri");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
-@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 /* Start purging... */
 @tailwind components;
@@ -19,7 +19,7 @@
 /* Your own custom utilities */
 
 body {
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   @apply text-gray-800 antialiased;
 }
 
@@ -28,7 +28,7 @@ p {
 }
 
 .serif {
-  font-family: "Amiri";
+  font-family: 'Amiri';
 }
 
 .hover-button {
@@ -52,7 +52,7 @@ p {
 }
 
 .text-header {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .has-text-align-left {
