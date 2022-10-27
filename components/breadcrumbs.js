@@ -40,13 +40,13 @@ export default function Breadcrumbs() {
   }
 
   return (
-    <div className="border-b border-accent-5 bg-gray-800 text-white">
+    <div className="border-b border-accent-5 bg-k2green text-white">
       <div className="flex items-center max-w-5xl mx-auto px-4">
         <Link href="/">
           <a className="hover:underline">Home </a>
         </Link>{' '}
         <MdChevronRight />{' '}
-        {breadcrumbs.map((breadcrumb, i) => (
+        {breadcrumbs.map((breadcrumb) => (
           <div key={breadcrumb.href} className="flex items-center">
             <Link href={breadcrumb.href}>
               <a className="hover:underline">

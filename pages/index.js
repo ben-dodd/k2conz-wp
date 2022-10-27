@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Container from '../components/container'
 import Layout from '../components/layout'
-import { CMS_NAME } from '../lib/constants'
 import { services } from '../public/config/services'
 
 export default function Index() {

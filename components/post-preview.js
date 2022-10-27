@@ -1,18 +1,9 @@
-import Avatar from "../components/avatar";
-import Date from "../components/date";
-import CoverImage from "./cover-image";
-import Link from "next/link";
+import CoverImage from './cover-image'
+import Link from 'next/link'
 
-export default function PostPreview({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}) {
+export default function PostPreview({ title, coverImage, excerpt, slug }) {
   return (
-    <div>
+    <div className="p-4">
       <div className="mb-5">
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
@@ -32,5 +23,5 @@ export default function PostPreview({
         }}
       />
     </div>
-  );
+  )
 }

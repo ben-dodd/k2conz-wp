@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        k2green: '#006D44',
+        k2light: '#B9E1D2',
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
@@ -20,6 +22,12 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
+      },
+      width: {
+        readability: '75ch',
+      },
+      maxWidth: {
+        readability: '75ch',
       },
       fontSize: {
         '5xl': '2.5rem',

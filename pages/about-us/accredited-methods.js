@@ -7,7 +7,6 @@ import Table from '../../components/table'
 import { MdFileDownload } from 'react-icons/md'
 
 function AccreditedMethods({ data }) {
-  console.log(data)
   const columns = [
     { Header: 'Category', accessor: 'Group Title', width: 'w-3/12' },
     { Header: 'Description', accessor: 'Description', width: 'w-4/12' },

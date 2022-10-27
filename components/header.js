@@ -1,21 +1,8 @@
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Menu from './menu'
 import useMediaQuery from '../lib/useMediaQuery'
 
 export default function Header() {
-  const [scroll, setScroll] = useState(0)
-
-  // useEffect(() => {
-  //   document.addEventListener("scroll", () => {
-  //     const scrollCheck = window.scrollY < 100;
-  //     if (scrollCheck !== scroll) {
-  //       setScroll(scrollCheck);
-  //     }
-  //   });
-  // });
-
   const isSmallScreen = useMediaQuery('(max-width: 640px)')
   const isMedScreen = useMediaQuery('(max-width: 768px)')
   const ianzDims = isMedScreen ? 60 : 80
@@ -48,10 +35,10 @@ export default function Header() {
         </a>
       </Link>
       <div className="text-center">
-        <div className="text-header text-2xl md:text-3xl lg:text-4xl text-gray-800">
+        <div className="text-header text-3xl md:text-4xl lg:text-6xl text-gray-800">
           K2 Environmental Ltd
         </div>
-        <div className="serif italic text-lg md:text-xl lg:text-2xl text-gray-600">
+        <div className="serif italic text-xl md:text-2xl lg:text-3xl text-gray-600">
           Specialists in Air Quality Testing
         </div>
       </div>
@@ -89,10 +76,6 @@ export default function Header() {
               height={socialH}
             />
           </a>
-          {/*<a href="https://www.instagram.com/k2__environmental__ltd/">
-            Follow us on{" "}
-            <Image src="/social/instagram.png" width="24" height="24" />
-          </a>*/}
         </div>
       </div>
     </div>
