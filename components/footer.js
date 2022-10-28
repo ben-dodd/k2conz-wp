@@ -1,6 +1,4 @@
 import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
-import Image from 'next/image'
 import { MdEmail, MdPhone, MdSmartphone } from 'react-icons/md'
 
 export default function Footer() {
